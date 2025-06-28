@@ -1,3 +1,4 @@
+//declare variable
 const inputName = document.getElementById("inputName");
 const email = document.getElementById("email");
 const phone_number = document.getElementById("phoneNumber");
@@ -6,15 +7,16 @@ const rePass = document.getElementById("rePassword");
 const submit_box = document.getElementById("submit_box");
 const allInput = document.querySelectorAll(".input_style");
 const form_box = document.getElementById("form_box");
+//end variable
+//validator by Regular expression
 const nameValidator = /^[A-Za-z\s]+$/;
-
 const emailValidator = /^[\S]{3,13}(@gmail\.com)$/;
 const bdNUmberValidator = /^\+?[88]{0,2}-?01[3456789]\d{8}$/;
 const passValidator =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^*&]{8,}$/;
+//end regex
 
-console.log(passValidator.test("newtonA8#"));
-
+//event listener
 submit_box.addEventListener("click", (e) => {
   e.preventDefault();
   for (let element of allInput) {
@@ -34,11 +36,12 @@ submit_box.addEventListener("click", (e) => {
     alert("email is invalid");
     return;
   } else if (!passValidator.test(password.value.trim())) {
-    alert("Write a Strong Password");
+    alert("Write a Strong Password at list each 1(uppercase-lowercase-number-special character)of them");
     return;
   } else if (password.value.trim() !== rePass.value.trim()) {
     alert("password not matched");
     return;
   }
-  form_box.submit();
+  // for validation the  event has been stop by prevent default 
+  form_box.submit();//manually submitting
 });
