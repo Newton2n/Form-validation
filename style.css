@@ -1,5 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap");
-
+:root {
+  --main-background-color: #feebf6;
+  --container-background: #fff;
+  --text-color: rgb(97, 97, 97);
+  --input-color: #fff;
+  --submit-box-background: #687fe5;
+}
+.dark {
+  --main-background-color: #030637;
+  --container-background: #1b2430;
+  --text-color: rgb(255, 255, 255);
+  --input-color: #fff;
+  --submit-box-background: #687fe5;
+}
 * {
   font-family: "Alumni Sans SC", sans-serif;
   border: none;
@@ -12,20 +25,45 @@ body {
   height: 100vh;
   width: 100vw;
 }
+.nav {
+  width: 240px;
+  height: 35px;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.theme_box {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border:1px solid black; */
+  border-radius: 5px;
+  background-color: var(--submit-box-background);
+  color: var(--input-color);
+  cursor: pointer;
+}
+.theme_text {
+  margin-right: 6px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
 #container {
   height: 100%;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #feebf6;
+  background-color: var(--main-background-color);
 }
 #sign {
   font-size: 2em;
-  color: rgb(185, 184, 184);
+  color: var(--text-color);
 }
 #form_box {
-  background-color: white;
+  background-color: var(--container-background);
   height: 350px;
   width: 240px;
   display: flex;
@@ -39,15 +77,20 @@ body {
 .input_style {
   font-size: 0.9em;
   width: 90%;
-  border: 2px rgb(185, 184, 184) solid;
-  color: rgb(62, 62, 62);
+  border: 2px var(--text-color) solid;
+  color: var(--input-color);
   padding: 8px 6px;
   border-radius: 3px;
   font-weight: 600;
+  background-color: var(--container-background);
+}
+.input_style:-webkit-autofill {
+  -webkit-text-fill-color: var(--text-color);
+  transition: background-color 5000s ease-in-out 0s;
 }
 .input_style:focus {
   outline: none;
-  border: 2px rgb(185, 184, 184) solid;
+  border: 2px var(--text-color) solid;
 }
 .no-arrow::-webkit-inner-spin-button,
 .no-arrow::-webkit-outer-spin-button {
@@ -65,10 +108,13 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 80%;
   font-size: 1.5em;
   padding: 5px 0;
+  color: var(--input-color);
+  background-color: var(--submit-box-background);
 
-  background-color: #687fe5;
-  color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+.hidden {
+  display: none;
 }
