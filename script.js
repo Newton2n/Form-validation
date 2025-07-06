@@ -36,12 +36,14 @@ submit_box.addEventListener("click", (e) => {
     alert("email is invalid");
     return;
   } else if (!passValidator.test(password.value.trim())) {
-    alert("Write a Strong Password at list each 1(uppercase-lowercase-number-special character)of them");
+    alert(
+      "Write a Strong Password at list each 1(uppercase-lowercase-number-special character)of them"
+    );
     return;
   } else if (password.value.trim() !== rePass.value.trim()) {
     alert("password not matched");
     return;
   }
-  // for validation the  event has been stop by prevent default 
-  form_box.submit();//manually submitting
+  // for validation the  event has been stop by prevent default
+  form_box.submit(); //manually submitting
 });
